@@ -1,15 +1,18 @@
-filepath <- system.file("setGOEAVCMpathsR.R")
-basedir <- dirname(filepath)
-b <- basedir
-c <- basedir
-
-library(tools)
-add_path <- function(path) {
-  path <- file.path(basedir, path)
-  .libPaths(path)
+# Get the path of the current script
+library("rstudioapi")  
+setwd(dirname(getActiveDocumentContext()$path))  
+codes_dir <- "codes"
+for ( code_r in c("GetWyomingCountyInfoR.R", 
+"CarcassOnRoadsR.R", 
+"getDeerCarcassDataR.R", 
+"getEagleUseHourDataR.R", 
+"CauchyErrorQuantileR.R", 
+"FitDistributions_UseHoursPerCarcassDayR.R", 
+"FitDistributions_ProbabilityOfScavengingR.R", 
+"CauchyErrorR.R", 
+"FitDistributions_DeerCarcassPersistenceR.R", 
+"EagleMortalityR.R"
+)){
+  source( file.path("codes", code_r ) )
 }
 
-add_path('')
-add_path(file.path('codes'))
-add_path(file.path('utilcodes'))
-add_path(file.path('datafiles'))
