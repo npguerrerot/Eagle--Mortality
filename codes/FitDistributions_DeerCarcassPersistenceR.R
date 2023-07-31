@@ -13,7 +13,7 @@ FitDistributions_DeerCarcassPersistence <- function( ret_val = 1){
   ytheory <- res$ytheory
   yout <- res$yout
   
-  t <- 1:length(yth)
+  t <- 1:length(ytheory)
   
   if ( ret_val == 1){
     # Assuming you have t, yth, and yout vectors already defined

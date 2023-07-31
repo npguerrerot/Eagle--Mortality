@@ -156,10 +156,3 @@ return( list( carcassdays = carcassdays,
               CamID = CamID ) )
 
 }
-
-
-res <- getEagleUseHourData("goldeneaglescomplete")
-
-res
-
-

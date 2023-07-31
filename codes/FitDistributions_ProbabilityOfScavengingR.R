@@ -86,5 +86,3 @@ FitDistributions_ProbabilityOfScavenging <- function(datafit = "goldeneaglescomp
     return(list(dayvect = dayvect, probavect = probavect, dcpdata = dcpdata))
   }
 }
-
-FitDistributions_ProbabilityOfScavenging()

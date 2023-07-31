@@ -15,4 +15,4 @@ for ( code_r in c("GetWyomingCountyInfoR.R",
 )){
   source( file.path("codes", code_r ) )
 }
-
+library(ggplot2)

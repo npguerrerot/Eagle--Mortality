@@ -1,17 +1,12 @@
+################################################################################
+# R code:
+################################################################################
+# Set up the directory path for EVSPhotoDataBaseDir
+EVSPhotoDataBaseDir <- file.path("datafiles")
 
-[basedir,b,c] <- fileparts(which('setGOEAVCMpaths.m'))
+# Set the output filename for EagleMortalityOutputFilename
+EagleMortalityOutputFilename <- "EagleMortalityOutput.csv"
 
-
-EVSPhotoDataBaseDir <- [basedir filesep 'datafiles' filesep]
-
-
-EagleMortalityOutputFilename <- 'EagleMortalityOutput.csv'
-
-
-
-# used for the manuscript
-#linearspacedJP=[.1:.1:2]*.0008;
-#ksteps= [10:10:150];
-
-linearspacedJP <- [.1:.4:2]*.0008
-ksteps <-  [10:30:150]
+# Set the values for linearspacedJP and ksteps
+linearspacedJP <- seq(0.1, 2, by = 0.4) * 0.0008
+ksteps <- seq(10, 150, by = 30)

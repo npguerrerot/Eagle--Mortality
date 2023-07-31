@@ -1,5 +1,5 @@
 # First, load the constants file
-source(file.path(codes_dir, "GOEAVCMconstantsfile.R"))
+source(file.path(codes_dir, "GOEAVCMconstantsfileR.R"))
 
 # Script to call EagleMortality
 
@@ -201,25 +201,3 @@ ggplot(df, aes(x = x, y = y, fill = value)) +
 
 
 
-
-
-# plot 1
-persp(ksteps, linearspacedJP, t(minval), xlab = "k", ylab = "Multi-eagle collision proba impact",
-      main = "Params where WY eagle mortality <- 0.01", col = "blue")
-color.legend(t(minval), title = "minval")
-dev.off()
-
-# plot 2
-persp(ksteps, linearspacedJP * 1000, t(minval), xlab = "Traffic Avoidance Parameter",
-      ylab = "Collision Likelihood Parameter (*1000)", main = "WY eagle mortality agreement",
-      col = terrain.colors(100), theta = 30, phi = 30)
-dev.off()
-
-# plot 3
-library(RColorBrewer)
-colormap <- colorRampPalette(brewer.pal(9, "YlGnBu"))
-persp(ksteps, linearspacedJP * 1000, t(mortality), xlab = "Traffic Avoidance Parameter",
-      ylab = "Collision Likelihood Parameter (*1000)", main = "WY eagle mortality",
-      col = colormap(100), theta = 30, phi = 30, zlim = c(0, 0.04), zlab = "Mortality")
-color.legend(t(mortality), title = "mortality")
-contour(ksteps, linearspacedJP * 1000, t(mortality), levels = 0.01, add = TRUE, col = "black", lwd = 2)
