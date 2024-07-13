@@ -1,5 +1,10 @@
 CauchyErrorQuantile <- function(x, t, y, tau, ret_val = 0) {
-  
+# function CauchyErrorQuantile - 
+#    Calculates an error quantile so fminsearch can be used to determine a quantile fit to a distribution
+#    when written in Matlab, this code used persistent variables to store the data and allow for multiple 
+#    calling syntaxes, one which is for fminsearch, one which returns the distribution.  It's a bit clunky here. 
+
+
 
   gamma <- x[1]
   scale <- x[2]
@@ -44,3 +49,20 @@ CauchyErrorQuantile <- function(x, t, y, tau, ret_val = 0) {
   }
   
 }
+
+## documentation from the Matlab version:
+#
+#% CauchyErrorQuantile - determine error for a cauchy distribution
+#%
+#%  Syntax
+#%  [err, yth,yout]=CauchyErrorQuantile(t,y,tau);   % initialization syntax
+#%  [err, yth,yout]=CauchyErrorQuantile(x);
+#%
+#%   Difference between first two syntaxes is number of elements in the
+#%   argument to the function.
+#%
+#%   err = OLS error between the cauchy distribution specified by gamma=x
+#%   and the initial dataset
+#%
+#%  Note that this can be called as follows:
+#%   x=fminsearch('CauchyErrorQuantile',[1])
