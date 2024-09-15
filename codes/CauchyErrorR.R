@@ -3,7 +3,12 @@ CauchyError <- function(x, y, ret_val = 1 ) {
   # function CauchyError - 
   #    Calculates an error so fminsearch can be used to determine a fit to a distribution
   #    when written in Matlab, this code used persistent variables to store the data and allow for multiple 
-  #    calling syntaxes, one which is for fminsearch, one which returns the distribution.  It's a bit clunky here. 
+  #    calling syntaxes, one which is for fminsearch, one which returns the distribution.   Since R does
+  #    not use persistent variables that is no longer a feature of this function.  However, there are still
+  #    multiple syntaxes based on the use of a default third parameter ret_val (i.e. it is called by fminsearch
+  #    which requires one behavior, and then called again to get the function form once fminsearch has 
+  #    determined the parameters of the function.) 
+  
   #
   # original documentation below
   

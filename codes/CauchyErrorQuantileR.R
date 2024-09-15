@@ -2,8 +2,18 @@ CauchyErrorQuantile <- function(x, t, y, tau, ret_val = 0) {
 # function CauchyErrorQuantile - 
 #    Calculates an error quantile so fminsearch can be used to determine a quantile fit to a distribution
 #    when written in Matlab, this code used persistent variables to store the data and allow for multiple 
-#    calling syntaxes, one which is for fminsearch, one which returns the distribution.  It's a bit clunky here. 
-
+#    calling syntaxes, one which is for fminsearch, one which returns the distribution.   Since R does
+  #    not use persistent variables that is no longer a feature of this function.  However, there are still
+  #    multiple syntaxes based on the use of a default third parameter ret_val (i.e. it is called by fminsearch
+  #    which requires one behavior, and then called again to get the function form once fminsearch has 
+  #    determined the parameters of the function.) 
+  #
+# if trying to figure out this code, I suggest you first figure out the CauchyErrorR.R part, since that 
+  # is an ordinary least squares (OLS) type of a calculation.  (Again, it's a bit strange because it was
+  # written in matlab and then translated to R, but it's calculating something relatively common).
+  #
+  # Then, consider this function as a modification of that ... it's doing a quantile calculation.  This error 
+  # condition is based on equation (3) of Meinshausen and Ridgeway, Quantile Regression Forests.  
 
 
   gamma <- x[1]
